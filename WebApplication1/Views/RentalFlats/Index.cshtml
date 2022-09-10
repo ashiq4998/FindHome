@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebApplication1.Models.RentalFlat>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Rental Flats</h2>
+
+<p>
+    @Html.ActionLink("Add New Flats", "Create")
+</p>
+<table class="table">
+    
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            <img src="@Url.Content(item.Picture)" width="300px" height="200px" />
+            
+        </td>
+        <td>
+            <p><b>@Html.DisplayNameFor(model => model.Size)</b></p>
+            <p><b>@Html.DisplayNameFor(model => model.Beds)</b></p>
+            <p><b>@Html.DisplayNameFor(model => model.Baths)</b></p>
+            <p><b>@Html.DisplayNameFor(model => model.Price)</b></p>
+            <p><b>@Html.DisplayNameFor(model => model.Address)</b></p>
+            <p><b>@Html.DisplayNameFor(model => model.DEVELOPER.DeveloperName)</b></p>
+        </td>
+        <td>
+            <p>@Html.DisplayFor(modelItem => item.Size)</p>
+            <p>@Html.DisplayFor(modelItem => item.Beds)</p>
+            <p>@Html.DisplayFor(modelItem => item.Baths)</p>
+            <p>@Html.DisplayFor(modelItem => item.Price)</p>
+            <p>@Html.DisplayFor(modelItem => item.Address)</p>
+            <p>@Html.DisplayFor(modelItem => item.DEVELOPER.DeveloperName)</p>
+        </td>
+        
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.RentalsId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.RentalsId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.RentalsId })
+        </td>
+    </tr>
+}
+
+</table>

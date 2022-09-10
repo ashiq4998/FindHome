@@ -1,0 +1,69 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="DBmodel2ModelStoreContainer" CdmEntityContainer="DBmodel2Entities1">
+    <EntitySetMapping Name="AdvanceMoneys">
+      <EntityTypeMapping TypeName="DBmodel2Model.AdvanceMoney">
+        <MappingFragment StoreEntitySet="AdvanceMoney">
+          <ScalarProperty Name="PayId" ColumnName="PayId" />
+          <ScalarProperty Name="DeveloperId" ColumnName="DeveloperId" />
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="PaymentDate" ColumnName="PaymentDate" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="APARTMENTS">
+      <EntityTypeMapping TypeName="DBmodel2Model.APARTMENT">
+        <MappingFragment StoreEntitySet="APARTMENTS">
+          <ScalarProperty Name="ApartmentId" ColumnName="ApartmentId" />
+          <ScalarProperty Name="DeveloperId" ColumnName="DeveloperId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Beds" ColumnName="Beds" />
+          <ScalarProperty Name="Baths" ColumnName="Baths" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="DEVELOPERS">
+      <EntityTypeMapping TypeName="DBmodel2Model.DEVELOPER">
+        <MappingFragment StoreEntitySet="DEVELOPERS">
+          <ScalarProperty Name="DeveloperId" ColumnName="DeveloperId" />
+          <ScalarProperty Name="DeveloperName" ColumnName="DeveloperName" />
+          <ScalarProperty Name="DeveloperEmail" ColumnName="DeveloperEmail" />
+          <ScalarProperty Name="DeveloperPhone" ColumnName="DeveloperPhone" />
+          <ScalarProperty Name="DeveloperPass" ColumnName="DeveloperPass" />
+          <ScalarProperty Name="License" ColumnName="License" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="RentalFlats">
+      <EntityTypeMapping TypeName="DBmodel2Model.RentalFlat">
+        <MappingFragment StoreEntitySet="RentalFlats">
+          <ScalarProperty Name="RentalsId" ColumnName="RentalsId" />
+          <ScalarProperty Name="DeveloperId" ColumnName="DeveloperId" />
+          <ScalarProperty Name="Address" ColumnName="Address" />
+          <ScalarProperty Name="Size" ColumnName="Size" />
+          <ScalarProperty Name="Beds" ColumnName="Beds" />
+          <ScalarProperty Name="Baths" ColumnName="Baths" />
+          <ScalarProperty Name="Price" ColumnName="Price" />
+          <ScalarProperty Name="Picture" ColumnName="Picture" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="DBmodel2Model.User">
+        <MappingFragment StoreEntitySet="Users">
+          <ScalarProperty Name="UserID" ColumnName="UserID" />
+          <ScalarProperty Name="FirstName" ColumnName="FirstName" />
+          <ScalarProperty Name="LastName" ColumnName="LastName" />
+          <ScalarProperty Name="EmailID" ColumnName="EmailID" />
+          <ScalarProperty Name="DateOfBirth" ColumnName="DateOfBirth" />
+          <ScalarProperty Name="Password" ColumnName="Password" />
+          <ScalarProperty Name="IsEmailVerified" ColumnName="IsEmailVerified" />
+          <ScalarProperty Name="ActivationCode" ColumnName="ActivationCode" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

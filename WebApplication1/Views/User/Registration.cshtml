@@ -1,0 +1,153 @@
+﻿@model WebApplication1.Models.User
+@{
+    ViewBag.Title = "Registration";
+}
+
+
+<!DOCTYPE html>
+<html lang="zxx">
+
+<head>
+    <title>Invent Signup Form Responsive Widget Template | Home :: W3layouts</title>
+    <!-- Meta tag Keywords -->
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta charset="UTF-8" />
+    <meta name="keywords"
+          content="Invent Signup Form Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
+    <script>
+        addEventListener("load", function () {
+            setTimeout(hideURLbar, 0);
+        }, false);
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+    <!-- //Meta tag Keywords -->
+    <!--/Style-CSS -->
+    <link rel="stylesheet" href="css/style-signup.css" type="text/css" media="all" />
+    <!--//Style-CSS -->
+</head>
+
+<body>
+    <!-- /login-section -->
+    <section class="w3l-login-6">
+        <div class="login-hny">
+            <div class="form-content">
+                <div class="form-right">
+                    <div class="overlay">
+                        <div class="grid-info-form">
+                            <h5>Say hello</h5>
+                            <h3>CREATE ACCOUNT </h3>
+                            <p>
+                                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Est natus facere aperiam!
+                                Tenetur maiores dolore a quod pariatur ut voluptates quae saepe ea quasi laudantium,
+                                iste molestias inventore fuga assumenda.
+                            </p>
+                            <a href="http://localhost:49972/User/Login" class="read-more-1 btn">Get Started</a>
+                        </div>
+
+                    </div>
+                </div>
+                <div class="form-left">
+                    <div class="middle">
+                        <h4>Join Us</h4>
+                        <p>Create Your Account, It's Free.</p>
+                    </div>
+                    @if (ViewBag.Status != null && Convert.ToBoolean(ViewBag.Status))
+                    {
+                        if (ViewBag.Message != null)
+                        {
+                            <div class="alert alert-success">
+                                <strong>Success!</strong>@ViewBag.Message
+                            </div>
+                        }
+                    }
+                    else
+                    {
+                        using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                <div class="form-horizontal text-center">
+                    <hr />
+                    @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                    <form>
+                        <div class="form-input">
+
+                            <label>First Name</label>
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "input-form", } })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+
+                        </div>
+
+                        <div class="form-input text-center">
+
+                            <label>Last Name</label>
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "input-form" } })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                        </div>
+
+                        <div class="form-input">
+                            <label>Email</label>
+                            @Html.EditorFor(model => model.EmailID, new { htmlAttributes = new { @class = "input-form" } })
+                            @Html.ValidationMessageFor(model => model.EmailID, "", new { @class = "text-danger" })
+                            @Html.ValidationMessage("EmailExist", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-input">
+                            <label>Date of Birth</label>
+                            @Html.EditorFor(model => model.DateOfBirth, new { htmlAttributes = new { @class = "input-form" } })
+                            @Html.ValidationMessageFor(model => model.DateOfBirth, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-input">
+                            <label>Password</label>
+                            @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "input-form" } })
+                            @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+                        </div>
+                        <div class="form-input">
+                            <label>Confirm Password</label>
+                            @Html.EditorFor(model => model.ConfirmPassword, new { htmlAttributes = new { @class = "input-form" } })
+                            @Html.ValidationMessageFor(model => model.ConfirmPassword, "", new { @class = "text-danger" })
+                        </div>
+
+
+                    </form>
+                    <div>
+                        <p>
+                            <div>
+                                <button class="btn btn-danger">Create account</button>
+                            </div>
+                        </p>
+                       
+                    </div>
+                    <div class="copy-right text-center">
+                        <p>
+                            <div>
+                                <p>Already a member ?   @Html.ActionLink("Login", "Login")</p>
+                               
+                            </div>
+                        </p>
+                    </div>
+                </div>
+                            if (ViewBag.Message != null)
+                            {
+                                <div class="alert alert-danger">
+                                    <strong>Error!</strong>@ViewBag.Message
+                                </div>
+                            }
+                        }
+                    }
+
+                </div>
+
+        </div>
+    </section>
+    <!-- //login-section -->
+</body>
+
+</html>
+
+
+
+

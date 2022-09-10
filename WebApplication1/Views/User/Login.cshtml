@@ -1,0 +1,67 @@
+﻿@model WebApplication1.Models.UserLogin
+
+@{
+    ViewBag.Title = "Login";
+}
+<!-- /login-section -->
+
+<section class="w3l-forms-23">
+    <div class="forms23-block-hny">
+        <div class="wrapper">
+            <h1>Login </h1>
+
+            <div class="d-grid forms23-grids">
+                <div class="form23">
+                    <div class="main-bg">
+                        <h6 class="sec-one">John Doe</h6>
+                        <div class="speci-login first-look">
+                            <img src="images/user.png" alt="" class="img-responsive">
+                        </div>
+                    </div>
+                    <div class="bottom-content">
+                        @using (Html.BeginForm())
+                        {
+                            @Html.AntiForgeryToken()
+
+                            <div class="form-horizontal">
+                                <hr />
+                                @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+
+                                @if (ViewBag.Message != "")
+                                {
+                                    <div class="text-danger">*@ViewBag.Message</div>
+                                }
+
+                                <div class="form-group">
+
+
+                                    @Html.EditorFor(model => model.EmailID, new { htmlAttributes = new { @class = "input-fornm", Placeholder = "Your Email", style = "width:250px; height: 40px; Text-align:Center" } })
+                                    @Html.ValidationMessageFor(model => model.EmailID, "", new { @class = "text-danger" })
+
+
+                                </div>
+
+                                <div class="form-group">
+
+
+                                    @Html.EditorFor(model => model.Password, new { htmlAttributes = new { @class = "input-fornm", Placeholder = "Your Password", style = "width:250px; height: 40px; Text-align:Center" } })
+                                    @Html.ValidationMessageFor(model => model.Password, "", new { @class = "text-danger" })
+
+                                </div>
+
+
+
+                                <button type="submit" class="loginhny-btn btn" style="width:250px; height: 50px;">Login</button>
+                                <p>Not a member yet?  @Html.ActionLink("Register Now", "Registration", "User")</p>
+                            </div>
+                        }
+
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+<!-- //login-section -->

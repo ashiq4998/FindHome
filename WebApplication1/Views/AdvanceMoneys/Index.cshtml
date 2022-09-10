@@ -1,0 +1,45 @@
+﻿@model IEnumerable<WebApplication1.Models.AdvanceMoney>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.PaymentDate)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.DEVELOPER.DeveloperName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.User.FirstName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.PaymentDate)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.DEVELOPER.DeveloperName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.User.FirstName)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.PayId }) |
+            @Html.ActionLink("Details", "Details", new { id=item.PayId }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.PayId })
+        </td>
+    </tr>
+}
+
+</table>

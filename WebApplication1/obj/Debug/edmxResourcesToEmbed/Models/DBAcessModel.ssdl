@@ -1,0 +1,133 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="DBmodel2Model.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="AdvanceMoney">
+    <Key>
+      <PropertyRef Name="PayId" />
+    </Key>
+    <Property Name="PayId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeveloperId" Type="int" Nullable="false" />
+    <Property Name="UserID" Type="int" Nullable="false" />
+    <Property Name="PaymentDate" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="APARTMENTS">
+    <Key>
+      <PropertyRef Name="ApartmentId" />
+    </Key>
+    <Property Name="ApartmentId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeveloperId" Type="int" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Size" Type="int" Nullable="false" />
+    <Property Name="Beds" Type="int" Nullable="false" />
+    <Property Name="Baths" Type="int" Nullable="false" />
+    <Property Name="Price" Type="int" Nullable="false" />
+    <Property Name="Picture" Type="varchar" MaxLength="8000" />
+  </EntityType>
+  <EntityType Name="DEVELOPERS">
+    <Key>
+      <PropertyRef Name="DeveloperId" />
+    </Key>
+    <Property Name="DeveloperId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeveloperName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DeveloperEmail" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="DeveloperPhone" Type="varchar" MaxLength="11" Nullable="false" />
+    <Property Name="DeveloperPass" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="License" Type="varchar" MaxLength="50" Nullable="false" />
+  </EntityType>
+  <EntityType Name="RentalFlats">
+    <Key>
+      <PropertyRef Name="RentalsId" />
+    </Key>
+    <Property Name="RentalsId" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="DeveloperId" Type="int" Nullable="false" />
+    <Property Name="Address" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="Size" Type="int" Nullable="false" />
+    <Property Name="Beds" Type="int" Nullable="false" />
+    <Property Name="Baths" Type="int" Nullable="false" />
+    <Property Name="Price" Type="int" Nullable="false" />
+    <Property Name="Picture" Type="varchar" MaxLength="8000" />
+  </EntityType>
+  <EntityType Name="Users">
+    <Key>
+      <PropertyRef Name="UserID" />
+    </Key>
+    <Property Name="UserID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="FirstName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="LastName" Type="varchar" MaxLength="50" Nullable="false" />
+    <Property Name="EmailID" Type="varchar" MaxLength="254" Nullable="false" />
+    <Property Name="DateOfBirth" Type="datetime2" Precision="7" />
+    <Property Name="Password" Type="nvarchar(max)" Nullable="false" />
+    <Property Name="IsEmailVerified" Type="bit" Nullable="false" />
+    <Property Name="ActivationCode" Type="uniqueidentifier" Nullable="false" />
+  </EntityType>
+  <Association Name="FK__AdvanceMo__Devel__1DE57479">
+    <End Role="DEVELOPERS" Type="Self.DEVELOPERS" Multiplicity="1" />
+    <End Role="AdvanceMoney" Type="Self.AdvanceMoney" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEVELOPERS">
+        <PropertyRef Name="DeveloperId" />
+      </Principal>
+      <Dependent Role="AdvanceMoney">
+        <PropertyRef Name="DeveloperId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__AdvanceMo__UserI__1ED998B2">
+    <End Role="Users" Type="Self.Users" Multiplicity="1" />
+    <End Role="AdvanceMoney" Type="Self.AdvanceMoney" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Users">
+        <PropertyRef Name="UserID" />
+      </Principal>
+      <Dependent Role="AdvanceMoney">
+        <PropertyRef Name="UserID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__APARTMENT__Devel__15502E78">
+    <End Role="DEVELOPERS" Type="Self.DEVELOPERS" Multiplicity="1" />
+    <End Role="APARTMENTS" Type="Self.APARTMENTS" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEVELOPERS">
+        <PropertyRef Name="DeveloperId" />
+      </Principal>
+      <Dependent Role="APARTMENTS">
+        <PropertyRef Name="DeveloperId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK__RentalFla__Devel__182C9B23">
+    <End Role="DEVELOPERS" Type="Self.DEVELOPERS" Multiplicity="1" />
+    <End Role="RentalFlats" Type="Self.RentalFlats" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="DEVELOPERS">
+        <PropertyRef Name="DeveloperId" />
+      </Principal>
+      <Dependent Role="RentalFlats">
+        <PropertyRef Name="DeveloperId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="DBmodel2ModelStoreContainer">
+    <EntitySet Name="AdvanceMoney" EntityType="Self.AdvanceMoney" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="APARTMENTS" EntityType="Self.APARTMENTS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="DEVELOPERS" EntityType="Self.DEVELOPERS" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="RentalFlats" EntityType="Self.RentalFlats" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Users" EntityType="Self.Users" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK__AdvanceMo__Devel__1DE57479" Association="Self.FK__AdvanceMo__Devel__1DE57479">
+      <End Role="DEVELOPERS" EntitySet="DEVELOPERS" />
+      <End Role="AdvanceMoney" EntitySet="AdvanceMoney" />
+    </AssociationSet>
+    <AssociationSet Name="FK__AdvanceMo__UserI__1ED998B2" Association="Self.FK__AdvanceMo__UserI__1ED998B2">
+      <End Role="Users" EntitySet="Users" />
+      <End Role="AdvanceMoney" EntitySet="AdvanceMoney" />
+    </AssociationSet>
+    <AssociationSet Name="FK__APARTMENT__Devel__15502E78" Association="Self.FK__APARTMENT__Devel__15502E78">
+      <End Role="DEVELOPERS" EntitySet="DEVELOPERS" />
+      <End Role="APARTMENTS" EntitySet="APARTMENTS" />
+    </AssociationSet>
+    <AssociationSet Name="FK__RentalFla__Devel__182C9B23" Association="Self.FK__RentalFla__Devel__182C9B23">
+      <End Role="DEVELOPERS" EntitySet="DEVELOPERS" />
+      <End Role="RentalFlats" EntitySet="RentalFlats" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

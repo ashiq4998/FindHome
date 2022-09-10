@@ -1,0 +1,68 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="~/Content/css/main1.css">
+    <link href="~/css/style.css" rel="stylesheet" />
+    <link href="~/css/style-signup.css" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/a076d05399.js" crossorigin="anonymous"></script>
+    <link href="//fonts.googleapis.com/css?family=Roboto:100,100i,300,300i,400,400i,500,500i,700,700i,900,900i" rel="stylesheet">
+    <link href="//fonts.googleapis.com/css?family=Montserrat:100,100i,200,200i,300,300i,400,400i,500,500i,600,600i,700,700i,800,800i,900,900i"
+          rel="stylesheet">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+
+    @Styles.Render("~/Content/bootstrapMinty.css")
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <nav class="navbar navbar-fixed-top navbar-expand-lg navbar-light bg-light">
+        <div class="container">
+            <a class="navbar-brand col-md-4" href="~/Home/Index">FIND HOME</a>
+
+            <div class="collapse navbar-collapse " id="navbarColor03">
+                <ul class="navbar-nav me-auto">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="~/Home/Index">
+                            Home
+                            <span class="visually-hidden">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/APARTMENTs/Index">Features</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Home/Contact">Contact US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="~/Home/About">About US</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link text-secondary" href="~/User/Login">Log In/Sign up</a>
+                    </li>
+                </ul>
+                <form class="d-flex">
+                    <input class="form-control me-sm-2" type="text" placeholder="Search">
+                    <button class="btn btn-secondary my-2 my-sm-0" type="submit">Search</button>
+                </form>
+            </div>
+        </div>
+    </nav>
+
+
+
+
+
+    <div class="container body-content text-center">
+        @RenderBody()
+        <hr />
+        <footer>
+            <p class="footer1 text-white">&copy; @DateTime.Now.Year - My ASP.NET Application</p>
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>

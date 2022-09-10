@@ -1,0 +1,92 @@
+﻿/*Body*/
+body {
+    margin:0;
+    padding:0;
+}
+
+/*...................................................Home Page...........................................*/
+
+/*First Division-Into Details*/
+.banner.background1 {
+    background: url(/Content/images/1.jpg) no-repeat bottom;
+    padding-top:150px;
+    padding-bottom: 150px;
+}
+.background1 .container .banner h1 {
+    color: yellow;
+    border-style: solid;
+    margin-left: 200px;
+    margin-right: 200px;
+}
+.background1 .container .banner p {
+    margin-top:50px;
+}
+
+.carousel-inner{
+    padding-top:20px;
+    padding-bottom:10px;
+}
+
+/*Service Division*/
+
+/*Pricing Division*/
+.pricing {
+    background: url(../img/front1.jpg) no-repeat bottom;
+    background-size: cover;
+}
+.price-header .pricing-card-title span {
+    font-size: .5em;
+    display: inline-block;
+    color: white;
+}
+.advertisement{
+    background-color:white;
+}
+.price-header h4 {
+    color: white;
+    font-size: 1.4em;
+}
+.card {
+    margin: 0 auto; /* Added */
+    float: none; /* Added */
+    margin-bottom: 10px; /* Added */
+}
+
+/*...................................................Contact Page...........................................*/
+
+.meaw{
+    color:rebeccapurple;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*Footer Division,Layout HTMl*/
+.footer-top {
+    background: url(../images/bg3.jpg) no-repeat bottom;
+    background-size: cover;
+    position: relative;
+}
+.footer1 {
+    background: #181819;
+    padding:20px;
+}
+.footer1 p {
+    letter-spacing: 2px;
+}
